@@ -5,6 +5,7 @@ void DecimalToBinary(int n, int* i, int A[])
     while (n > 0)
     {
         int remainder = n % 2;
+
         A[*i] = remainder;
         n = n / 2;
         *i = *i + 1;
@@ -22,7 +23,10 @@ int main(void)
     DecimalToBinary(n, &i, A);
 
     printf("The binary equivalent is : ");
-    for (int j = i - 1; j >= 0; j--) printf("%d", A[j]);
+
+    for (int j = i - 1; j >= 0; j--)
+        printf("%d", A[j]);
+
     printf("\n");
 
     return 0;

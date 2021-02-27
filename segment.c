@@ -49,6 +49,7 @@ int main(void)
     int direction = GetDirection(a, b, p);
 
     printf("Position of point (p) relative to segment (a, b) : ");
+
     if (direction == LEFT) printf("LEFT\n");
     else if (direction == RIGHT) printf("RIGHT\n");
     else printf("ON THE LINE\n");

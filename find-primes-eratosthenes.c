@@ -5,8 +5,10 @@ int FindPrimes(int n, int Primes[])
 {
     for (int i = 0; i <= n; i++)
         Primes[i] = 1;
+
     Primes[0] = 0;
     Primes[1] = 0;
+
     for (int i = 2; i <= sqrt(n); i++)
         if (Primes[i] == 1)
             for (int j = i; i * j <= n; j++)
@@ -24,9 +26,11 @@ int main(void)
     FindPrimes(n, Primes);
 
     printf("Prime number(s): [ ");
+
     for (int i = 0; i <= n; i++)
         if (Primes[i])
             printf("%d ", i);
+
     printf("]\n");
 
     return 0;
