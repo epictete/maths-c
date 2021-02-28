@@ -29,9 +29,7 @@ double Area(Point vertices[] , int n)
 
 int main(void)
 {
-    int n = 6;
     Point a, b, c, d, e, f;
-    Point vertices[n];
 
     a.x = -2;
     a.y = -3;
@@ -46,12 +44,8 @@ int main(void)
     f.x = -4;
     f.y = 0;
 
-    vertices[0] = a;
-    vertices[1] = b;
-    vertices[2] = c;
-    vertices[3] = d;
-    vertices[4] = e;
-    vertices[5] = f;
+    Point vertices[] = {a, b, c, d, e, f};
+    int n = sizeof(vertices) / sizeof(vertices[0]);
 
     printf("Area of polygon : %.2lf\n", Area(vertices, n));
 
