@@ -5,18 +5,22 @@ int Max(int a, int b)
     return a >= b ? a : b;
 }
 
-int MaxSumSubarray1(int A[], int n)
+int IsNegative(int *A, int n)
 {
-    int ans = A[0], sum = 0;
+    int ans = A[0];
 
     for (int i = 1; i < n; i++)
-    {
         ans = Max(ans, A[i]);
-    }
 
-    if (ans < 0) return ans;
+    return ans < 0 ? ans : 0;
+}
 
-    ans = 0;
+int MaxSumSubarray1(int A[], int n)
+{
+    int ans = IsNegative(A, n), sum = 0;
+
+    if (ans < 0)
+        return ans;
 
     for (int i = 0; i < n; i++)
     {
@@ -32,16 +36,10 @@ int MaxSumSubarray1(int A[], int n)
 
 int MaxSumSubarray2(int A[], int n)
 {
-    int ans = A[0], sum = 0;
+    int ans = IsNegative(A, n), sum = 0;
 
-    for (int i = 1; i < n; i++)
-    {
-        ans = Max(ans, A[i]);
-    }
-
-    if (ans < 0) return ans;
-
-    ans = 0;
+    if (ans < 0)
+        return ans;
 
     for (int i = 0; i < n; i++)
     {
@@ -54,10 +52,10 @@ int MaxSumSubarray2(int A[], int n)
 
 int main(void)
 {
-    int A[] = {3, -2, 5, -7, 9, 12};
+    int A[] = {3, -2, 5, -7, 9, 12, 0};
     int sizeA = sizeof(A) / sizeof(A[0]);
 
-    int B[] = {-3, -2, -5, -7, -9, -12};
+    int B[] = {-3, -2, -5, -7, -9, -12, 0};
     int sizeB = sizeof(B) / sizeof(B[0]);
 
     printf("Maximum subarray (1) : %d\n", MaxSumSubarray1(A, sizeA));
